@@ -78,4 +78,29 @@ Sets values in placeholders and executes.
 After inserting, calls fetchData(con) to show the newly inserted record.  
 
 
-
+***4.update(Connection con)***  
+String query="update employee set name=? where emp_id=?";  
+Updates only the name of an employee with the given emp_id.  
+pstmt.setString(1, name);  
+pstmt.setInt(2, emp_id);  
+pstmt.executeUpdate();  
+Runs the update, then calls fetchData(con) to display updated record.  
+***5.delete(Connection con)***  
+String query="delete from employee where emp_id=?";  
+Deletes the record for the given employee ID.  
+pstmt.setInt(1, emp_id);  
+pstmt.executeUpdate();  
+Runs deletion, then calls fetchData(con) (although after deletion, it might not show anything).  
+***6.fetchData(Connection con)***  
+String query="select * from employee where emp_id=?";  
+Retrieves a record based on emp_id.  
+ResultSet rs = pstmt.executeQuery();  
+while(rs.next()) {  
+  System.out.println(rs.getInt(1)+" "+rs.getString(2)+" "+rs.getInt(3));  
+}  
+Prints emp_id, name, and salary.  
+***7.Overall Flow***  
+Connect to MySQL DB.  
+Ask user for a choice (Insert, Update, Delete, Fetch).  
+Perform the chosen operation.  
+After each modification, display the affected employee data.  
