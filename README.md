@@ -104,3 +104,15 @@ Connect to MySQL DB.
 Ask user for a choice (Insert, Update, Delete, Fetch).  
 Perform the chosen operation.  
 After each modification, display the affected employee data.  
+
+
+***8.Strengths***  
+✅ Uses PreparedStatement — avoids SQL injection.  
+✅ Modular methods (insert, update, delete, fetchData).  
+✅ Each CRUD operation is interactive with the user.  
+***9.Things You Could Improve***  
+Close resources: ResultSet, PreparedStatement, and Connection should be closed in a finally block or use try-with-resources.  
+Avoid multiple Scanner objects — create only one and pass it to methods.  
+Show all employees after insert/delete instead of asking for emp_id every time in fetchData.  
+Handle invalid menu choices with a default case.  
+
