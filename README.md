@@ -61,3 +61,21 @@ Update existing employee name.
 Delete employee.  
 
 Fetch employee by ID.  
+
+
+***3.insert(Connection con)***  
+String query="insert into employee values(?,?,?)";  
+Uses a prepared statement with 3 placeholders for:  
+emp_id (integer)  
+name (string)  
+salary (integer)  
+PreparedStatement pstmt=con.prepareStatement(query);  
+pstmt.setInt(1, emp_id);  
+pstmt.setString(2, name);  
+pstmt.setInt(3, salary);  
+pstmt.execute();  
+Sets values in placeholders and executes.  
+After inserting, calls fetchData(con) to show the newly inserted record.  
+
+
+
